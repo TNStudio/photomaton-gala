@@ -29,11 +29,10 @@ public class MainInterfaceController{
 					@Override
 					public void run() {
 					try {
-						System.out.println("refresh");
+						//System.out.println("refresh");
 						update();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 					}
 				});
@@ -52,7 +51,7 @@ public class MainInterfaceController{
 
 
 	public void update() {
-		System.out.println("updating");
+		//System.out.println("updating");
 		imageView.setImage(SwingFXUtils.toFXImage(main.getModele().getResult(), null));
 		imageView.setFitHeight(main.getPrimaryScreenBounds().getHeight());
 		imageView.setFitWidth(main.getPrimaryScreenBounds().getWidth());

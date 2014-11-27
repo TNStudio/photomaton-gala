@@ -46,12 +46,12 @@ public class Modele implements MyObservable{
 
 			try {
 				image = ImageIO.read(photo);
-				canvas = ImageIO.read(new File("Canvas.png"));
+				canvas = ImageIO.read(new File("Canvas.jpg"));
 				ImageBuilder builder = new ImageBuilder(canvas, image);
 				//result = builder.getResult();
 				result = canvas;
 				updateObserver();
-				ImageIO.write(result, "PNG", new File(photoFolder+name+".png"));
+				ImageIO.write(result, "JPG", new File(photoFolder+name+".jpg"));
 				//Save photo
 			} catch (IOException e) {
 				e.printStackTrace();
