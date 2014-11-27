@@ -1,0 +1,97 @@
+package application.model;
+
+import imageProcessing.ImageBuilder;
+import imageProcessing.ImageConverter;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
+import observerPattern.MyObservable;
+import observerPattern.MyObserver;
+import edsdk.utils.CanonCamera;
+
+public class Modele implements MyObservable{
+	
+	public static int POLLING_TIME = 1000;
+	public static String photoFolder = "E:\\Dropbox\\Gala2014\\1"; //temp file
+	public static String photoNoCanva = "E:\\Dropbox\\studio\\GALA";
+	
+	private CanonCamera slr;
+	private int photo_number = 0;
+	private BufferedImage image = null;
+	private BufferedImage canvas = null;
+	private BufferedImage result = null;
+	
+	private ArrayList<MyObserver> obsList;
+
+	private DownloadThread downloadThread;
+	
+	public Modele(){
+		obsList = new ArrayList<MyObserver>();
+		
+		slr = new CanonCamera();
+		
+		slr.openSession();
+		
+		downloadThread = new DownloadThread(this, slr, photoNoCanva);
+	}
+
+
+	public void MyUpdate(File photo, String name) {
+
+			try {
+				image = ImageIO.read(photo);
+				canvas = ImageIO.read(new File("Canvas.png"));
+				ImageBuilder builder = new ImageBuilder(canvas, image);
+				//result = builder.getResult();
+				result = canvas;
+				ImageIO.write(result, "PNG", new File(photoFolder+name+".png"));
+				//Save photo
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			//ImageConverter process = new ImageConverter(image);
+			//updateObserver();
+		}
+
+
+
+	public BufferedImage getImage() {
+		return image;
+	}
+
+
+	public void setImage(BufferedImage image) {
+		this.image = image;
+	}
+
+
+	public BufferedImage getResult() {
+		return result;
+	}
+
+
+	public void setResult(BufferedImage result) {
+		this.result = result;
+	}
+
+
+	@Override
+	public void addObserver(MyObserver obs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void updateObserver() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}
