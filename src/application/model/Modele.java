@@ -38,6 +38,7 @@ public class Modele implements MyObservable{
 		slr.openSession();
 		
 		downloadThread = new DownloadThread(this, slr, photoNoCanva);
+		
 	}
 
 
@@ -49,6 +50,7 @@ public class Modele implements MyObservable{
 				ImageBuilder builder = new ImageBuilder(canvas, image);
 				//result = builder.getResult();
 				result = canvas;
+				updateObserver();
 				ImageIO.write(result, "PNG", new File(photoFolder+name+".png"));
 				//Save photo
 			} catch (IOException e) {
@@ -82,14 +84,16 @@ public class Modele implements MyObservable{
 
 	@Override
 	public void addObserver(MyObserver obs) {
-		// TODO Auto-generated method stub
+		obsList.add(obs);
 		
 	}
 
 
 	@Override
 	public void updateObserver() {
-		// TODO Auto-generated method stub
+		for(int i=0;i<obsList.size();i++){
+			obsList.get(i).update();
+		}
 		
 	}
 

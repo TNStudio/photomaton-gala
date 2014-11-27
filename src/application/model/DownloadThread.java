@@ -20,7 +20,7 @@ public class DownloadThread implements Runnable{
 		this.photoFolder = new File(photoFolder);
 		this.modele = modele;
 		t = new Thread(this);
-		t.run();
+		t.start();
 	}
 	
 	@Override
