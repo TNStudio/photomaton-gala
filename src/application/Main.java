@@ -49,7 +49,7 @@ public class Main extends Application {
 
 				@Override
 				public void handle(WindowEvent arg0) {
-					primaryStage.show(); //show the window when is asked to hide
+//					primaryStage.show(); //show the window when is asked to hide
 
 				}
 			});
