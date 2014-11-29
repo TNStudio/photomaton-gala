@@ -27,8 +27,9 @@ public class DownloadThread implements Runnable{
 	public void run() {
 		while(true){
 			photo_number =  photoFolder.list().length+1;
+			System.out.println("the number of photo is : "+photo_number);
 			photo_name = photoFolder.getPath()+"\\photo"+photo_number+".jpg";
-			 String photo_name_string = "\\photo"+photo_number;
+			String photo_name_string = "\\photo"+photo_number;
 			photoFile = new File(photo_name);
 			DownloadTask task = new DownloadTask(photoFile);
 			slr.executeNow(task);

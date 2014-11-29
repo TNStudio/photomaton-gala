@@ -40,11 +40,11 @@ public class Main extends Application {
 			Scene scene = new Scene(rootPane);
 			primaryStage.initStyle(StageStyle.UNDECORATED); //set it undecorated
 			primaryScreenBounds = Screen.getPrimary().getVisualBounds(); //create a rectangle that fit the main screen
-			//primaryStage.setX(primaryScreenBounds.getMinX());//put the fisrt window at the origin of the screen
-			//primaryStage.setY(primaryScreenBounds.getMinY());//see above
-			//primaryStage.setWidth(primaryScreenBounds.getWidth()); //fit the window to the size of the screen
-			//primaryStage.setHeight(primaryScreenBounds.getHeight());//see above
-			primaryStage.setFullScreen(true);
+			primaryStage.setX(primaryScreenBounds.getMinX());//put the fisrt window at the origin of the screen
+			primaryStage.setY(primaryScreenBounds.getMinY());//see above
+			primaryStage.setWidth(primaryScreenBounds.getWidth()); //fit the window to the size of the screen
+			primaryStage.setHeight(primaryScreenBounds.getHeight());//see above
+			//primaryStage.setFullScreen(true);
 			primaryStage.setOnHiding(new EventHandler<WindowEvent>() { //set a always on top
 
 				@Override
