@@ -17,7 +17,7 @@ import edsdk.utils.CanonCamera;
 public class Modele implements MyObservable{
 	
 	public static int POLLING_TIME = 1000;
-	public static String photoFolder = "E:\\Dropbox\\Gala2014\\1"; //temp file
+	public static String photoFolder = "E:\\Dropbox\\Gala2014\\3"; //temp file
 	public static String photoNoCanva = "E:\\Dropbox\\studio\\GALA";
 	
 	private CanonCamera slr;

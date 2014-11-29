@@ -12,7 +12,7 @@ public class ImageBuilder {
 		
 		// paint both images, preserving the alpha channels
 		Graphics g = canvas.getGraphics();
-		g.drawImage(image, 50, 50, null);
+		g.drawImage(image, 100, x, null);
 	}
 	
 	public void Update(BufferedImage canvas, BufferedImage image) {
